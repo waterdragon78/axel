@@ -100,8 +100,9 @@ Optional:
 * `automake`
 * `gettext`
 * `openssl`
+* `txt2man`
 
-### Building on Mac OS X (Homebrew)
+### Building on Mac OS X (Homebrew, Intel)
 
 You'll need to provide some extra options to autotools so it can find gettext
 and openssl.
@@ -116,6 +117,33 @@ and openssl.
 	LDFLAGS=-L$GETTEXT/lib ./configure
 
 You can just run `make` as usual after these steps.
+
+### Building on Mac OS X (Homebrew, Silicon)
+
+You'll need to provide some extra options to autotools so it can find gettext
+and openssl.
+
+	GETTEXT=/opt/homebrew/Cellar/gettext/*
+	OPENSSL=/opt/homebrew/Cellar/openssl@1.1/*
+	PATH="$GETTEXT/bin:$PATH"
+
+	[ -x configure ] || autoreconf -fiv -I$GETTEXT/share/aclocal/
+
+	CFLAGS="-I$GETTEXT/include -I$OPENSSL/include" \
+	LDFLAGS=-L$GETTEXT/lib ./configure
+
+You can just run `make` as usual after these steps.
+
+	brew install autoconf-archive automake gettext openssl txt2man
+ 	GETTEXT=/opt/homebrew/Cellar/gettext/*
+	OPENSSL=/opt/homebrew/Cellar/openssl@1.1/*
+	PATH="$GETTEXT/bin:$PATH"
+
+	[ -x configure ] || autoreconf -fiv -I$GETTEXT/share/aclocal/
+
+	CFLAGS="-I$GETTEXT/include -I$OPENSSL/include" \
+	LDFLAGS=-L$GETTEXT/lib ./configure
+ 	make
 
 ## Related projects ##
 
