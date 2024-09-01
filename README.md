@@ -1,5 +1,8 @@
 # AXEL - Lightweight CLI download accelerator
 
+## Reason for fork
+I removed the header limit, which was a pain for me when I needed to download a file with specific headers from a cURL command copied from chromes network requests. I'm sure there was a reason for it, but it seems to be working so I'll just post it here. Sorry if this is a pain to read, I'm tired lol.
+
 ## About
 
 Axel tries to accelerate the download process by using multiple
